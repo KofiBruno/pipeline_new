@@ -4,7 +4,7 @@ pipeline {
     environment {
         MAVEN_TOOL  = 'maven3.9.12'
 
-        DOCKER_IMAGE = 'code9bruno/linkpay'
+        DOCKER_IMAGE = 'bruno6725/linkpay'
         DOCKER_TAG   = "${BUILD_NUMBER}"
 
         TEST_CONTAINER = 'linkpay-test'
@@ -47,7 +47,7 @@ pipeline {
                     )
                 ]) {
                     sh '''
-                    docker login -u $DOCKER_USER -p $DOCKER_PASS
+                    echo "${DOCKER_PASS}" | docker login -u ${DOCKER_USER} --password-stdin
                     docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
                     '''
                 }
