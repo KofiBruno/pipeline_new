@@ -15,7 +15,7 @@ pipeline {
 
         stage('1. Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/code9Bruno/pipeline1.git'
+                git branch: 'main', url: 'https://github.com/KofiBruno/pipeline_new.git'
             }
         }
 
